@@ -1,0 +1,31 @@
+{
+  "name": "plus-portal",
+  "description": "Custom Css for portal",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Kudzai Zishumba <kzish@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": false,
+  "homepage": "https://github.com/2wce/portal",
+  "_release": "1921c85fce",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1921c85fce32c7ddd2861b10b7272436938eeec0"
+  },
+  "_source": "git://github.com/2wce/portal.git",
+  "_target": "*",
+  "_originalSource": "kudzi-portal",
+  "_direct": true
+}
