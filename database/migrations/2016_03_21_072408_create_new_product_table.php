@@ -18,6 +18,7 @@ class CreateNewProductTable extends Migration
           $table->integer('user_id');
           $table->integer('category_id')->nullable; // ie can be empty
           $table->string('product_name');
+          $table->string('cond');
           $table->integer('price');
           $table->string('product_description');
           $table->string('base_image');

@@ -19,7 +19,10 @@ class CreateNewPostTable extends Migration
             $table->integer('user_id');
             $table->integer('parent_id')->nullable; // ie can be empty
             $table->text('body');
+            $table->text('post_image')->nullable;
             $table->integer('type_id');
+            $table->integer('service_id');
+            $table->integer('collection_id');
             $table->integer('product_id'  );
 
             $table->timestamps();
