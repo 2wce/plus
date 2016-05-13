@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Chatty\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Chatty\Http\Middleware\RedirectIfAuthenticated::class,
+        'ability' => \Chatty\Http\Middleware\TokenEntrustAbility::class,
     ];
 }

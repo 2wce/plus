@@ -3,9 +3,10 @@
 @section('content')
 <h3>Sign up</h3>
 	<div class="row">
-	<div class="panel-heading">
-					<h2>Registration Form</h2>
-				</div>
+		<div class="panel-heading">
+			<h2>Registration Form</h2>
+		</div>
+	    
 	    <div class="col-lg-6">
 	        <form class="form-vertical" role="form" method="post" action="{{ route('auth.signup') }}">
 	            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -15,6 +16,7 @@
 	                	<span class="help-block">{{ $errors->first('email') }}</span>
 	                @endif
 	            </div>
+
 	            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
 	                <label for="username" class="control-label">Choose a Trading Name</label>
 
@@ -24,16 +26,16 @@
 	                @endif
 	            </div>
 
-							<div class="form-group">
-											<label class="control-label">Business Type</label>
-											<select multiple="" class="form-control">
-												<option>Retail</option>
-												<option>Manufacturing</option>
-												<option>Advertsing</option>
-												<option>Design</option>
-												<option>Education</option>
-											</select>
-										</div>
+				<div class="form-group">
+					<label class="control-label">Business Type</label>
+					<select multiple="" class="form-control" id="select">
+						<option>Retail</option>
+						<option>Manufacturing</option>
+						<option>Advertsing</option>
+						<option>Design</option>
+						<option>Education</option>
+					</select>
+				</div>
 
 	            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 	                <label for="password" class="control-label">Choose a password</label>
@@ -42,10 +44,12 @@
 	                	<span class="help-block">{{ $errors->first('password') }}</span>
 	                @endif
 	            </div>
+
 	            <div class="form-group">
 	                <button type="submit" class="btn btn-default">Sign up</button>
 	            </div>
 	            <input type="hidden" name="_token" value="{{ Session::token() }}">
+
 	        </form>
 	    </div>
 	</div>

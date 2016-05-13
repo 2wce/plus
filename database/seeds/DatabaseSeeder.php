@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Chatty\Models\User;
-use Chatty\Models\Product;
-use Chatty\Models\Category;
+use Chatty\Plus\Users\User;
+use Chatty\Plus\Products\Product;
+use Chatty\Plus\Categories\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +24,35 @@ class DatabaseSeeder extends Seeder
         Model::reguard();
     }
 }
+/**
+*
+*/
+// class User extends Seeder
+// {
 
+//   public function run()
+//   {
+//         Model::unguard();
+
+//         // $this->call(UserTableSeeder::class);
+//         DB::table('tbl_users')->delete();
+
+//         $users = array(
+//             ['name' => 'Kuda Mupeni', 'email' => 't@gmail.com', 'password' => Hash::make('secret')],
+//             ['name' => 'Chris Sevilleja', 'email' => 'chris@scotch.io', 'password' => Hash::make('secret')],
+//             ['name' => 'Holly Lloyd', 'email' => 'holly@scotch.io', 'password' => Hash::make('secret')],
+//             ['name' => 'Adnan Kukic', 'email' => 'adnan@scotch.io', 'password' => Hash::make('secret')],
+//         );
+
+//         // Loop through each user above and create the record for them in the database
+//         foreach ($users as $user)
+//         {
+//             User::create($user);
+//         }
+
+//         Model::reguard();
+//   }
+// }
 class ProductCategory extends Seeder
 {
     /**

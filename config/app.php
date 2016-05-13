@@ -147,7 +147,15 @@ return [
         Chatty\Providers\EventServiceProvider::class,
         Chatty\Providers\RouteServiceProvider::class,
 
+        //Tracker
         PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
+
+        //JWTAuth
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
+        // Larasearch
+        Iverberk\Larasearch\LarasearchServiceProvider::class,
 
 
     ],
@@ -204,6 +212,10 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
 
       	'Tracker' => PragmaRX\Tracker\Vendor\Laravel\Facade::class,
+
+        'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Entrust' => Zizaco\Entrust\EntrustServiceProvider::class,
 
 
 

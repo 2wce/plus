@@ -9,9 +9,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Html;
-use Chatty\Models\Category;
-use Chatty\Models\Collection;
-use Chatty\Models\Type;
+use Chatty\Plus\Categories\Category;
+use Chatty\Plus\Collections\Collection;
+use Chatty\Plus\Types\Type;
 
 
 abstract class Controller extends BaseController
@@ -24,7 +24,7 @@ abstract class Controller extends BaseController
       $this->beforeFilter(function(){
 
      	View::share('catnav', Category::all());
-      View::share('typenav', Type::all());
+      	View::share('typenav', Type::all());
         View::share('collection', Collection::all());
 
 

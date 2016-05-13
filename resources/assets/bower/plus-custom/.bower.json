@@ -1,0 +1,22 @@
+{
+  "name": "plus-custom",
+  "description": "Social Network + Ecommerce",
+  "main": "",
+  "authors": [
+    "Kuda Mupeni <terrencemupeni@gmail.com>"
+  ],
+  "ignore": [
+    "bower.json"
+  ],
+  "homepage": "https://github.com/2wce/plus-custom",
+  "_release": "322ac6a46a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "322ac6a46a93f281c8af028966dcce8d8cc78c7c"
+  },
+  "_source": "https://github.com/2wce/plus-custom.git",
+  "_target": "*",
+  "_originalSource": "plus-custom",
+  "_direct": true
+}

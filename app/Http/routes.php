@@ -11,11 +11,79 @@
 |
 */
 
+Route::get('/posts', [
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@posts',
+	'as'   => 'posts',
+
+]);
+
+Route::get('/prodcts', [
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@prodcts',
+	'as'   => 'prodcts',
+
+]);
+
+Route::get('/service', [
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@service',
+	'as'   => 'service',
+
+]);
 
 
+Route::get('/select-cat', [
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@selectCat',
+	'as'   => 'cats',
+
+]);
+
+Route::get('/timeline/{cat_id}', [
+	'uses' => '\Chatty\Http\Controllers\HomeController@getTimelineFilter',
+	'as'   => 'timeline.show',
+
+]);
+
+//@TODO figure out why this won't cache
+Route::post('storeToCollection', [
+	'uses' => '\Chatty\Http\Controllers\DbModels\CollectionsController@storeToCollection',
+	'middleware' => ['auth'],
+]);
+
+Route::post('addUserCategories', [
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@postCategorySelect',
+
+]);
+
+Route::post('follows/{username}',[
+  'uses' => '\Chatty\Http\Controllers\Relationships\FollowsController@store',
+  'as' => 'follow'
+  ]);
+
+Route::post('follows/{id}',[
+    'uses' => '\Chatty\Http\Controllers\Relationships\FollowsController@destroy',
+    'as' => 'unfollow'
+]);
+
+// Route to create a new role
+Route::post('role', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@createRole');
+// Route to create a new permission
+Route::post('permission', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@createPermission');
+// Route to assign role to user
+Route::post('assign-role', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@assignRole');
+// Route to attache permission to a role
+Route::post('attach-permission', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@attachPermission');
+
+// API route group that we need to protect
+Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']], function()
+{
+    // Protected route
+    Route::get('users', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@index');
+});
+
+// Authentication route
+Route::post('authenticate', '\Chatty\Http\Controllers\Auth\JwtAuthenticateController@authenticate');
 
 Route::get('/activate/{activation_code}', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@getActivate',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@getActivate',
 	'as' => 'activate',
 	'middleware' => ['guest'],
 ]);
@@ -25,14 +93,14 @@ Route::get('/activate/{activation_code}', [
  * Home Route
  */
 Route::get('/', [
-	'uses' => '\Chatty\Http\Controllers\HomeController@index',
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@index',
 	'as'   => 'home',
 
 ]);
 
 
 Route::get('/admin', [
-	'uses' => '\Chatty\Http\Controllers\AdminController@index',
+	'uses' => '\Chatty\Http\Controllers\Auth\AdminController@index',
 	'as'   => 'admin.test',
 
 ]);
@@ -43,20 +111,20 @@ Route::get('/admin', [
  * Authentication
  */
 Route::get('/signup', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@getSignup',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@getSignup',
 	'as'   => 'auth.signup',
 	'middleware' => ['guest'],
 ]);
 
 Route::post('/signup', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@postSignup',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@postSignup',
 	'middleware' => ['guest'],
 ]);
 
 
 
 Route::get('/signin', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@getSignin',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@getSignin',
 	'as'   => 'auth.signin',
 	'middleware' => ['guest'],
 ]);
@@ -64,7 +132,7 @@ Route::get('/signin', [
 
 
 Route::post('/signin', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@postSignin',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@postSignin',
 	'middleware' => ['guest'],
 	'after'  => 'setCookie',
 	//'before' => 'killCookie',
@@ -72,7 +140,7 @@ Route::post('/signin', [
 ]);
 
 Route::get('/signout', [
-	'uses' => '\Chatty\Http\Controllers\AuthController@getSignout',
+	'uses' => '\Chatty\Http\Controllers\Auth\AuthController@getSignout',
 	'as'   => 'auth.signout',
 ]);
 
@@ -82,7 +150,7 @@ Route::get('/signout', [
  * SEARCH
  */
 Route::get('/search', [
-	'uses' => '\Chatty\Http\Controllers\SearchController@getResults',
+	'uses' => '\Chatty\Http\Controllers\UI\SearchController@getResults',
 	'as'   => 'search.results',
 ]);
 
@@ -93,62 +161,62 @@ Route::get('/search', [
  */
 // show profile
 Route::get('/user/{username}', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getProfile',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getProfile',
 	'as'   => 'profile.index',
 
 ]);
 
 
 Route::get('/user/{username}/timeline', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getProfileTimeline',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getProfileTimeline',
 	'as'   => 'profile.index.timeline',
 
 ]);
 
 Route::get('/user/{username}/products', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getProfileProducts',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getProfileProducts',
 	'as'   => 'profile.index.products',
 
 ]);
 
 
 Route::get('/user/{username}/collections', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getProfileCollections',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getProfileCollections',
 	'as'   => 'profile.index.collections',
 
 ]);
 
 Route::get('/user/{username}/network', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getProfileNetwork',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getProfileNetwork',
 	'as'   => 'profile.index.network',
 
 ]);
 
 Route::get('/category/', [
-	'uses' => '\Chatty\Http\Controllers\CategoriesController@getCategory',
+	'uses' => '\Chatty\Http\Controllers\DbModels\CategoriesController@getCategory',
 
 
 ]);
 
 // edit the user's profile
 Route::get('/profile/edit', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@getEdit',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@getEdit',
 	'as'   => 'profile.edit',
 	'middleware' => 'auth',
 ]);
 
 Route::post('/profile/edit', [
-	'uses' => '\Chatty\Http\Controllers\ProfileController@postEdit',
+	'uses' => '\Chatty\Http\Controllers\UI\ProfileController@postEdit',
 	'middleware' => 'auth',
 ]);
 
 Route::post('storeToCollection', [
-	'uses' => '\Chatty\Http\Controllers\CollectionsController@storeToCollection',
+	'uses' => '\Chatty\Http\Controllers\UI\CollectionsController@storeToCollection',
 	'middleware' => 'auth',
 ]);
 
 Route::post('shareCollection', [
-	'uses' => '\Chatty\Http\Controllers\CollectionsController@shareCollection',
+	'uses' => '\Chatty\Http\Controllers\UI\CollectionsController@shareCollection',
 	'middleware' => 'auth',
 ]);
 
@@ -158,26 +226,26 @@ Route::post('shareCollection', [
  * FRIENDS
  */
 Route::get('/friends', [
-	'uses' => '\Chatty\Http\Controllers\FriendController@getIndex',
+	'uses' => '\Chatty\Http\Controllers\Relationships\FriendController@getIndex',
 	'as'   => 'friends.index',
 	'middleware' => 'auth',
 ]);
 
 Route::get('/friends/add/{username}', [
-	'uses' => '\Chatty\Http\Controllers\FriendController@getAdd',
+	'uses' => '\Chatty\Http\Controllers\Relationships\FriendController@getAdd',
 	'as'   => 'friends.add',
 	'middleware' => 'auth',
 ]);
 
 
 Route::get('/endorse/add/{username}',[
-	'uses'=>'\Chatty\Http\Controllers\EndorsementController@getAdd',
+	'uses'=>'\Chatty\Http\Controllers\Relationships\EndorsementController@getAdd',
     'as'=>'endorse',
     'middleware' => 'auth',
     ]);
 
 Route::get('/friends/accept/{username}', [
-	'uses' => '\Chatty\Http\Controllers\FriendController@getAccept',
+	'uses' => '\Chatty\Http\Controllers\Relationships\FriendController@getAccept',
 	'as'   => 'friends.accept',
 	'middleware' => 'auth',
 ]);
@@ -189,93 +257,44 @@ Route::get('/friends/accept/{username}', [
  *  STATUS  updates
  */
 Route::post('/status', [
-	'uses' => '\Chatty\Http\Controllers\StatusController@postStatus',
+	'uses' => '\Chatty\Http\Controllers\DbModels\StatusController@postStatus',
 	'as'   => 'status.post',
 	'middleware' => 'auth',
 ]);
 
 Route::post('/status/{statusId}/reply', [
-	'uses' => '\Chatty\Http\Controllers\StatusController@postReply',
+	'uses' => '\Chatty\Http\Controllers\DbModels\StatusController@postReply',
 	'as'   => 'status.reply',
 	'middleware' => 'auth',
 ]);
 
 
 Route::get('/status/{statusId}/like', [
-	'uses' => '\Chatty\Http\Controllers\StatusController@getLike',
+	'uses' => '\Chatty\Http\Controllers\DbModels\StatusController@getLike',
 	'as'   => 'status.like',
 	'middleware' => 'auth',
 ]);
 
-Route ::resource('products', 'ProductsController') ;
+Route ::resource('products', '\Chatty\Http\Controllers\DbModels\ProductsController') ;
 
-Route ::resource('categories', 'CategoriesController') ;
+Route ::resource('categories', '\Chatty\Http\Controllers\DbModels\CategoriesController') ;
 
-Route ::resource('services', 'ServicesController') ;
+Route ::resource('services', '\Chatty\Http\Controllers\DbModels\ServicesController') ;
 
-Route ::resource('types', 'TypesController') ;
+Route ::resource('types', '\Chatty\Http\Controllers\DbModels\TypesController') ;
 
-Route ::resource('collections', 'CollectionsController') ;
+Route ::resource('collections', '\Chatty\Http\Controllers\DbModels\CollectionsController') ;
 
-Route ::resource('messages', 'MessagesController') ;
-
-
-
-//////////////////////////////////////////////////////////////////////////////////
-//cookies for xmpp
-Route::filter('setCookie', function() {
-	//\Cookie::forever("_MYJID","jjrrj",3600);
-	//session_start();
-	$_SESSION["_MYJID"]=Auth::user()->username;
-
-});
-Route::get('/cookie', function(){
-   session_start();
-	return $_SESSION["_MYJID"];
-});
-
-//route to translate the page or chaneg the lamguage locale
-Route::get('/home/lang', array('uses'=>'\Chatty\Http\Controllers\HomeController@_zish_ChangeLang',
-	'as' => 'home/lang'
-));
-
-
-//////////////////////////////////profile/////////////////////////////////////
-Route::get('/profile/{name}/contact_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showContactInfo',
-	'as'=>'profile/{name}/contact_info',
-	));
-
-Route::get('/profile/{name}/business_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showBusinessInfo',
-	'as'=>'profile/{name}/business_info',
-	));
-
-Route::get('/profile/{name}/community_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showCommunityInfo',
-	'as'=>'profile/{name}/community_info',
-	));
-
-Route::get('/profile/{name}/academic_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showAcademicInfo',
-	'as'=>'profile/{name}/academic_info',
-	));
-Route::get('/profile/{name}/general_settings',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showGeneralSettings',
-	'as'=>'profile/{name}/general_settings',
-	));
-
-Route::get('/profile/{name}/location_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showLocationInfo',
-	'as'=>'profile/{name}/location_info',
-	));
-
-Route::get('/profile/{name}/proffesional_info',array('uses'=>'\Chatty\Http\Controllers\ProfileController@showProfessionalInfo',
-	'as'=>'profile/{name}/proffesional_info',
-	));
+Route ::resource('messages', '\Chatty\Http\Controllers\Chat\MessagesController') ;
 
 
 ////////////////////////////////////endorsement ///////////////////////////////
-Route::get('/endorse/{user_id}',array('uses'=>'\Chatty\Http\Controllers\EndorsementController@getAdd',
+Route::get('/endorse/{user_id}',array('uses'=>'\Chatty\Http\Controllers\Relationships\EndorsementController@getAdd',
 	'as'=>'endorse',
 	));
 
 
 ///get friends to add to group////
-Route::get('/groups',array('uses'=>'\Chatty\Http\Controllers\GroupController@getFriends',
+Route::get('/groups',array('uses'=>'\Chatty\Http\Controllers\Relationships\GroupController@getFriends',
 	'as'=>'groups',
 	));

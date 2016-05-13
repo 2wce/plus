@@ -13,3 +13,5 @@ bootstrap/cache/
 #.env
 .env.example
 
+
+tests/_output/*

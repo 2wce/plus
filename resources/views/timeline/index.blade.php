@@ -10,7 +10,7 @@
 
   <!--------------------- end of header---------------------->
 
-        <div id="wrapper">
+        <div id="wrapper" style="margin-top: 3%;">
             <div id="layout-static">
 
 

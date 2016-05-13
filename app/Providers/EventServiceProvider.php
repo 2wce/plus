@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Chatty\Events\SomeEvent' => [
-            'Chatty\Listeners\EventListener',
+        'Chatty\Events\UserRegistered' => [
+            'Chatty\Listeners\SendEmailConfirmation',
         ],
     ];
 
