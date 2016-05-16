@@ -115,71 +115,6 @@ Licensed under MIT
 @endforeach
 @endif
 
-<div class="col-md-4"  style = "padding-right:2%">
-
-<div class="row profile">
-
-<div class="profile-sidebar">
-<!-- SIDEBAR USERPIC -->
-<div class="profile-userpic">
-   <img src="images/people/110/guy-9.jpg" alt="people" class="img-responsive">
-</div>
-<!-- END SIDEBAR USERPIC -->
-<!-- SIDEBAR USER TITLE -->
-<div class="profile-usertitle">
-  <div class="profile-usertitle-name">
-    Marcus Doe
-  </div>
-  <div class="profile-usertitle-job">
-    Developer
-  </div>
-</div>
-<!-- END SIDEBAR USER TITLE -->
-<!-- SIDEBAR BUTTONS -->
-<div class="profile-userbuttons">
-  <button type="button" class="btn btn-success btn-sm">Follow</button>
-  <button type="button" class="btn btn-danger btn-sm">Message</button>
-</div>
-<!-- END SIDEBAR BUTTONS -->
-<!-- SIDEBAR MENU -->
-
-<!-- END MENU -->
-</div>
-</div>
-
-</div>
-<div class="col-md-4 connect">
-<div class="row profile">
-
-<div class="profile-sidebar">
-<!-- SIDEBAR USERPIC -->
-<div class="profile-userpic">
-   <img src="images/people/110/guy-9.jpg" alt="people" class="img-responsive">
-</div>
-<!-- END SIDEBAR USERPIC -->
-<!-- SIDEBAR USER TITLE -->
-<div class="profile-usertitle">
-  <div class="profile-usertitle-name">
-    Marcus Doe
-  </div>
-  <div class="profile-usertitle-job">
-    Developer
-  </div>
-</div>
-<!-- END SIDEBAR USER TITLE -->
-<!-- SIDEBAR BUTTONS -->
-<div class="profile-userbuttons">
-  <button type="button" class="btn btn-success btn-sm">Follow</button>
-  <button type="button" class="btn btn-danger btn-sm">Message</button>
-</div>
-<!-- END SIDEBAR BUTTONS -->
-<!-- SIDEBAR MENU -->
-
-<!-- END MENU -->
-</div>
-</div>
-
-</div>
 
 
 
@@ -188,8 +123,6 @@ Licensed under MIT
 
 
 
-
-           </>
 
                   </div> <!---- End of Timeline and Middle Content  -------->
 
@@ -198,103 +131,7 @@ Licensed under MIT
 
 
                             <div class = "col-sm-2">
-                              <div class="sidebar1 right">
 
-    <ul class="chat-filter nav nav-pills ">
-        <li class="active"><a href="#" data-target="li">All</a>
-        </li>
-        <li><a href="#" data-target=".online">Online</a>
-        </li>
-        <li><a href="#" data-target=".offline">Offline</a>
-        </li>
-    </ul>
-    <ul class="chat-contacts">
-        <li class="online" data-user-id="1">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <span class="status"></span>
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>"Free Today"</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="online away" data-user-id="2">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <span class="status"></span>
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>"Feeling Groovy"</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="online" data-user-id="3">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <span class="status"></span>
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>Busy</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="offline" data-user-id="4">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>Offline</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="offline" data-user-id="4">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>Offline</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="offline" data-user-id="4">
-            <a href="#">
-                <div class="media">
-                    <div class="pull-left">
-                        <img src="{{url(Auth::user()->profilePic)}}" width="40" class="img-circle" />
-                    </div>
-                    <div class="media-body">
-                        <div class="contact-name">{{ Auth::user()->getNameOrUsername() }}</div>
-                        <small>Offline</small>
-                    </div>
-                </div>
-            </a>
-        </li>
-    </ul>
-    <div class="chat-search">
-        <input type="text" class="form-control" placeholder="Search" />
-    </div>
-</div>
                             </div>
                           </div>
                         </div> <!-- #page-content -->

@@ -1,8 +1,7 @@
 <style>
 .AdaptiveFiltersBar {
     border-bottom: 1px solid #e1e8ed;
-    margin: 0 auto;
-    height: 50px;
+    margin: 0 auto
 }
 .AdaptiveFiltersBar-nav {
     text-align: center
@@ -337,7 +336,7 @@
 
 
 
-<div class="AdaptiveFiltersBar" style = "margin-top : 3%;">
+<div class="AdaptiveFiltersBar" style = "margin-top : 0.6%;">
     <ul class="AdaptiveFiltersBar-nav">
 <li class="AdaptiveFiltersBar-item u-borderUserColor is-selected">
           <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" href="/search?vertical=default&amp;q=love&amp;src=tyah" title="Top" data-nav="search_filter_top">
@@ -361,7 +360,7 @@
           </a>
         </li><li class="AdaptiveFiltersBar-item AdaptiveFiltersBar-item--more u-borderUserColor ">
       <div class="dropdown">
-
+        
         <div class="AdaptiveFiltersDropdown dropdown-menu">
   <ul>
          <li>
@@ -418,7 +417,7 @@
         </li>
       <li class="dropdown-divider"></li>
 
-
+    
       <li class="AdaptiveFiltersDropdown-savedSearch">
           <a class="AdaptiveFiltersDropdown-target js-add-search js-toggle-saved-search-link" title="Save this search">
             <span class="AdaptiveFiltersDropdown-label">Save this search</span>
@@ -431,7 +430,7 @@
       </li>
       <li class="dropdown-divider"></li>
 
-
+    
     <li>
       <a href="/search-advanced" class="AdaptiveFiltersDropdown-target AdaptiveFiltersDropdown-target--advanced js-nav" data-nav="advanced_search">
         <span class="AdaptiveFiltersDropdown-label">Advanced search</span>

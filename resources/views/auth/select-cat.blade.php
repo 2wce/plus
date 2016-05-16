@@ -1,124 +1,123 @@
 <link type="text/css" href="{{asset('css/select.css')}}" rel="stylesheet">
-
 <style>
-  .searchable-container{margin:20px 0 0 0}
-  .searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
-  .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
-  .searchable-container label .bizcontent{width:100%;}
-  .searchable-container .btn-group{width:90%}
-  .searchable-container .btn span.glyphicon{
-      opacity: 0;
-  }
-  .searchable-container .btn.active span.glyphicon {
-      opacity: 1;
-  }
+.searchable-container{margin:20px 0 0 0}
+.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+.searchable-container .btn-group{width:90%}
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
 
-  .list {
-  font-family:sans-serif;
-  margin:0;
-  padding:20px 0 0;
-  }
-  .list > li {
-  display:block;
-  background-color: #eee;
-  padding:10px;
-  box-shadow: inset 0 1px 0 #fff;
-  }
-  .avatar {
-  max-width: 150px;
-  }
-  img {
-  max-width: 100%;
-  }
-  h3 {
-  font-size: 16px;
-  margin:0 0 0.3rem;
-  font-weight: normal;
-  font-weight:bold;
-  }
-  p {
-  margin:0;
-  }
+.list {
+font-family:sans-serif;
+margin:0;
+padding:20px 0 0;
+}
+.list > li {
+display:block;
+background-color: #eee;
+padding:10px;
+box-shadow: inset 0 1px 0 #fff;
+}
+.avatar {
+max-width: 150px;
+}
+img {
+max-width: 100%;
+}
+h3 {
+font-size: 16px;
+margin:0 0 0.3rem;
+font-weight: normal;
+font-weight:bold;
+}
+p {
+margin:0;
+}
 
-  input {
-  border:solid 1px #ccc;
-  border-radius: 5px;
-  padding:7px 14px;
-  margin-bottom:10px
-  }
-  input:focus {
-  outline:none;
-  border-color:#aaa;
-  }
-  .sort {
-  padding:8px 30px;
-  border-radius: 6px;
-  border:none;
-  display:inline-block;
-  color:#fff;
-  text-decoration: none;
-  background-color: #28a8e0;
-  height:30px;
-  }
-  .sort:hover {
-  text-decoration: none;
-  background-color:#1b8aba;
-  }
-  .sort:focus {
-  outline:none;
-  }
-  .sort:after {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  content:"";
-  position: relative;
-  top:-10px;
-  right:-5px;
-  }
-  .sort.asc:after {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #fff;
-  content:"";
-  position: relative;
-  top:13px;
-  right:-5px;
-  }
-  .sort.desc:after {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #fff;
-  }
+input {
+border:solid 1px #ccc;
+border-radius: 5px;
+padding:7px 14px;
+margin-bottom:10px
+}
+input:focus {
+outline:none;
+border-color:#aaa;
+}
+.sort {
+padding:8px 30px;
+border-radius: 6px;
+border:none;
+display:inline-block;
+color:#fff;
+text-decoration: none;
+background-color: #28a8e0;
+height:30px;
+}
+.sort:hover {
+text-decoration: none;
+background-color:#1b8aba;
+}
+.sort:focus {
+outline:none;
+}
+.sort:after {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-bottom: 5px solid transparent;
+content:"";
+position: relative;
+top:-10px;
+right:-5px;
+}
+.sort.asc:after {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 5px solid #fff;
+content:"";
+position: relative;
+top:13px;
+right:-5px;
+}
+.sort.desc:after {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-bottom: 5px solid #fff;
+}
 
-  img {
-    width: 150px;
-    border: 1px solid black;
-  }
-  img.selected {
-    border: 3px solid green;
-  }
-  img:hover {
-    cursor: pointer;
-  }
-  #galleryHeader {
-    display: none;
-  }
-  h3, h4 {
-    color: green;
-  }
-  h4 {
-    font-style:italic;
-  }
-  html {
-    background-color: #E6E6E6;
-  }
+img {
+  width: 150px;
+  border: 1px solid black;
+}
+img.selected {
+  border: 3px solid green;
+}
+img:hover {
+  cursor: pointer;
+}
+#galleryHeader {
+  display: none;
+}
+h3, h4 {
+  color: green;
+}
+h4 {
+  font-style:italic;
+}
+html {
+  background-color: #E6E6E6;
+}
 
 </style>
 @extends('templates.default')
@@ -167,7 +166,7 @@
                                     </div>
                                     <div class="row">
 
-                                    <form name = "select-cat" method = "POST" action = "{{  action('\Chatty\Http\Controllers\Auth\AuthController@postCategorySelect')  }}">
+                                    <form name = "select-cat" method = "POST" action = "{{  action('AuthController@postCategorySelect')  }}">
                                         <div class="form-group">
                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <input type="search" class="form-control" id="search" placeholder="Add your options..">

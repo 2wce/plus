@@ -119,6 +119,29 @@ opacity: 0;
                  </div>
                </div>
 
+               <div class = "form-group">
+                 <legend>Add Images</legend>
+        <div class="row">
+            <div class="form-group col-sm-2">
+                <div class="img-picker"></div>
+            </div>
+            <div class="form-group col-sm-2">
+                <div class="img-picker"></div>
+            </div>
+            <div class="form-group col-sm-2">
+                <div class="img-picker"></div>
+            </div>
+            <div class="form-group col-sm-2">
+                <div class="img-picker"></div>
+            </div>
+            <div class="form-group col-sm-2">
+                <div class="img-picker"></div>
+            </div>
+        </div>
+
+
+               </div>
+
                <div class="form-group">
                  <label class="col-sm-2 control-label">Base Image</label>
                  <div class="col-sm-8">

@@ -114,7 +114,7 @@
 
 
                                    <!-- content goes here -->
-                               <form role="form" method="post" action ="{{  action('\Chatty\Http\Controllers\DbModels\CollectionsController@storeToCollection')  }}">
+                               <form role="form" method="post" action ="{{  action('CollectionsController@storeToCollection')  }}">
 
                                  <div class="form-group">
                                  <label for="exampleInputPassword1">Collection</label>

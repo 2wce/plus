@@ -25,7 +25,7 @@
 			@endif
 			@if($status->type_id == 4)
 
-          @include('templates.posts.image')
+          @include('templates.posts.collection')
 
 			@endif
 

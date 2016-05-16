@@ -17,6 +17,9 @@
   "dependencies": {
     "jquery": "^2.2.3",
     "bootstrap": "^3.3.6",
-    "plus-custom": "*"
+    "plus-custom": "*",
+    "lightbox2": "lightbox#^2.8.2",
+    "image-picker": "^0.2.4",
+    "bootstrap-tokenfield": "^0.12.1"
   }
 }

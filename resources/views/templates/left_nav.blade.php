@@ -7,7 +7,7 @@
  <img  class = "img-responsive" width = "80" height = "80" style = ""  src="{{url(Auth::user()->profilePic)}}">
 </div>
 <div class="info">
-<a ref="{{ route('profile.index.timeline', ['username' => Auth::user->username]) }}"><span class="username">{{ Auth::user()->getNameOrUsername() }}</span>
+<a href="{{ route('profile.index', ['username' => Auth::user()->username]) }}"><span class="username">{{ Auth::user()->getNameOrUsername() }}</span>
 <span class="useremail">{{Auth::user()->location}}</span></a>
 </div>
 </div>

@@ -26,7 +26,10 @@ elixir(function(mix) {
     	'../bower/jquery-ui/jquery-ui.js',						
 		'../bower/velocity/velocity.js',
 		'../bower/velocity/velocity.ui.js',
-		'../bower/plus-custom/dist/js/application.js'
+		'../bower/image-picker/image-picker/image-picker.js',
+		'../bower/bootstrap-tokenfield/js/bootstrap-tokenfield.js',
+		'../bower/plus-custom/dist/js/application.js',
+		'../bower/plus-custom/dist/js/jquery-mt-select.min.js'
 	], 'public/assets/js/vendor.js');    
 });
 

@@ -92,6 +92,14 @@ Route::get('/activate/{activation_code}', [
 /**
  * Home Route
  */
+
+Route::get('/', [
+	'uses' => '\Chatty\Http\Controllers\UI\HomeController@landing',
+	'as'   => 'landing',
+	'middleware' => ['guest'],
+
+]);
+
 Route::get('/', [
 	'uses' => '\Chatty\Http\Controllers\UI\HomeController@index',
 	'as'   => 'home',

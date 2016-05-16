@@ -10,13 +10,14 @@ use Chatty\Plus\Collections\Collection;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Model implements AuthenticatableContract
 {
     use Authenticatable, EntrustUserTrait;
-
+    
     /**
      * The database table used by the model.
      *

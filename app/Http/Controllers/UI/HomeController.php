@@ -12,6 +12,12 @@ use Chatty\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
+    public function landing() {
+
+      return view('timeline.landing');
+
+    }
+
     public function index()
     {
         // show timeline if user is authenticated

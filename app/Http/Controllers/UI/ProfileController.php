@@ -32,6 +32,8 @@ class ProfileController extends Controller
 				->orderBy('created_at', 'desc')
 				->paginate(10);
 
+
+
 				setcookie("_MYJID", $user->username);
 
 		return view('profile.index')
@@ -130,6 +132,15 @@ class ProfileController extends Controller
 	{
 		return view('profile.edit');
 	}
+
+
+
+
+		public function getCards()
+		{
+			return view('profile.cards');
+		}
+
 
 
 

@@ -74,48 +74,7 @@
 
                 @foreach($collections as $collection)
                   <div class="col-lg-5" style = "border: 1px solid #CDCDCD;  margin:4%;min-height : 300px;">
-                        <?php $modal_id = "modal-{$collection->id}"?>
-                            <input data-toggle="modal" data-target="#{{$modal_id}}" class="btn btn-primary center-block" type="button" value="Share Collection" />
 
-<!-------- This is a modal for Sharing a Collection as Post ----------------->
-
-
-
-<div class="modal fade" id="{{$modal_id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-    <h3 class="modal-title" id="lineModalLabel">You are sharing your : {{$collection->title}} Collection</h3>
-  </div>
-  <div class="modal-body">
-
-
-          <!-- content goes here -->
-      <form role="form" method="post" action ="{{  action('CollectionsController@shareCollection')  }}">
-
-
-
-
-
-            <div class="form-group">
-
-              <label for="exampleInputPassword1">Description</label>
-          <textarea  id="txtarea1" cols="50" name ="description" rows="4" class="form-control">{{$collection->description}}</textarea>
-            </div>
-                <input type = "hidden" name = "collection_id" value ="{{$collection->id}}"/>
-            <div class="btn-group" role="group">
-              <button type="submit" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Share</button>
-            </div>
-              <input type="hidden" name="_token" value="{{ Session::token() }}" >
-
-          </form>
-
-  </div>
-
-</div>
-</div>
-</div>
 
 
 
